@@ -1,50 +1,47 @@
-When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKUs that satisfy your requirements based on the types of workloads, throughputs, features, and SLAs. Azure offers the following VPN gateway SKUs:
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 03/20/2019
+ ms.author: cherylmc
+ ms.custom: include file
+---
 
-|**SKU**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br>Connections** | **Aggregate<br>Throughput** |
-|---       | ---                             | ---                    | ---                         |
-|**VpnGw1**| Max. 30                         | Max. 128               | 500 Mbps                    |
-|**VpnGw2**| Max. 30                         | Max. 128               | 1 Gbps                      |
-|**VpnGw3**| Max. 30                         | Max. 128               | 1.25 Gbps                   |
-|**Basic** | Max. 10                         | Max. 128               | 100 Mbps                    | 
-|          |                                 |                        |                             | 
+When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughputs, features, and SLAs. For virtual network gateway SKUs in Azure Availability Zones, see [Azure Availability Zones Gateway SKUs](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
-* Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway) page
-* SLA (Service Level Agreement) information can be found on the [SLA](https://azure.microsoft.com/en-us/support/legal/sla/vpn-gateway/) page
+###  <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
 
-> [!NOTE]
-> * The throughput is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to Internet traffic conditions and your application behaviors.
-> * VPN Gateway does not use the UltraPerformance gateway SKU. For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.
+[!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-### Production *vs.* Dev-Test Workloads
-Due to the differences in SLAs and feature sets, we recommend the following SKUs for production *vs.* dev-test:
+[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
+
+###  <a name="feature"></a>Gateway SKUs by feature set
+
+The new VPN gateway SKUs streamline the feature sets offered on the gateways:
+
+| **SKU**| **Features**|
+| ---    | ---         |
+|**Basic** (**)   | **Route-based VPN**: 10 tunnels for S2S/connections; no RADIUS authentication for P2S; no IKEv2 for P2S<br>**Policy-based VPN**: (IKEv1): 1 S2S/connection tunnel; no P2S|
+| **VpnGw1, VpnGw2, and VpnGw3** | **Route-based VPN**: up to 30 tunnels (*), P2S, BGP, active-active, custom IPsec/IKE policy, ExpressRoute/VPN coexistence |
+|        |             |
+
+(*) You can configure "PolicyBasedTrafficSelectors" to connect a route-based VPN gateway (VpnGw1, VpnGw2, VpnGw3) to multiple on-premises policy-based firewall devices. Refer to [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) for details.
+
+(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature limitations. You can't resize a gateway that uses a Basic SKU to one of the new gateway SKUs, you must instead change to a new SKU, which involves deleting and recreating your VPN gateway.
+
+###  <a name="workloads"></a>Gateway SKUs - Production vs. Dev-Test Workloads
+
+Due to the differences in SLAs and feature sets, we recommend the following SKUs for production vs. dev-test:
 
 | **Workload**                       | **SKUs**               |
 | ---                                | ---                    |
 | **Production, critical workloads** | VpnGw1, VpnGw2, VpnGw3 |
-| **Dev-test or proof of concept**   | Basic                  |
+| **Dev-test or proof of concept**   | Basic (**)                 |
 |                                    |                        |
 
-If you are still using the old SKUs, the production SKU recommendations are Standard and HighPerformance SKUs.
+(\*\*) The Basic SKU is considered a legacy SKU and has feature limitations. Verify that the feature that you need is supported before you use the Basic SKU.
 
-### Gateway SKU feature sets
-The new gateway SKUs streamline the feature sets offered on the gateways:
-
-| **SKU**| **Features**|
-| ---    | ---         |
-| VpnGw1<br>VpnGw2<br>VpnGw3|Route- and policy-based VPN up to 30 tunnels<br>P2S, BGP, active-active, custom IPsec/IKE policy, ExpressRoute/VPN co-existence|
-|Basic   | Route-based: 10 tunnels with P2S<br>Policy-based (IKEv1): 1 tunnel; no P2S|
-|        |             |
-
-### Re-sizing gateway SKUs
-
-> [!IMPORTANT]
-> 1. You can resize between VpnGw1, VpnGw2, and VpnGw3 SKUs
-> 2. You **cannot** resize from Basic/Standard/HighPerformance SKUs to the new VpnGw1/VpnGw2/VpnGw3 SKUs
-> 3. For the old SKUs, you can still re-size between Basic, Standard, and HighPerformance SKUs
-
-### Migrating from old SKUs to VpnGw1/VpnGw2/VpnGw3
-You cannot resize your Azure VPN gateways directly between the old (Basic/Standard/HighPerformance) and the new (VpnGw1/VpnGw2/VpnGw3) SKU families. You need to delete the existing (Basic/Standard/HighPerformance) gateway and create a new (VpnGw1/VpnGw2/VpnGw3) gateway with the new SKUs. Note that your Azure Gateway public IP address will change as a result.
-
-1. [Delete the old gateway](../articles/vpn-gateway/vpn-gateway-delete-vnet-gateway-portal.md)
-2. [Create the new gateway] (../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-3. Update your [on-premises VPN devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) with the new Azure VPN gateway public IP address
+If you are using the old SKUs (legacy), the production SKU recommendations are Standard and HighPerformance. For information and instructions for old SKUs, see [Gateway SKUs (legacy)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).

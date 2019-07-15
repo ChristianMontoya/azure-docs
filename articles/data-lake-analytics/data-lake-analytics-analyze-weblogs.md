@@ -1,28 +1,21 @@
 ---
-title: Analyze Website logs using Azure Data Lake Analytics | Microsoft Docs
-description: 'Learn how to analyze website logs using Data Lake Analytics. '
+title: Analyze Website logs using Azure Data Lake Analytics
+description: Learn how to analyze website logs using Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: edmacauley
-manager: jhubbard
-editor: cgronlun
-
+author: saveenr
+ms.author: saveenr
+ms.reviewer: jasonwhowell
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/05/2016
-ms.author: edmaca
-
 ---
-# Tutorial: Analyze Website logs using Azure Data Lake Analytics
+# Analyze Website logs using Azure Data Lake Analytics
 Learn how to analyze website logs using Data Lake Analytics, especially on finding out which referrers ran into errors when they tried to visit the website.
 
-## Prerequisites:
+## Prerequisites
 * **Visual Studio 2015 or Visual Studio 2013**.
-* **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**.
+* **[Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs)**.
 
     Once Data Lake Tools for Visual Studio is installed, you will see a **Data Lake** item in the **Tools** menu in Visual Studio:
 
@@ -31,9 +24,7 @@ Learn how to analyze website logs using Data Lake Analytics, especially on findi
 
   * [Develop U-SQL script using Data Lake tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * **A Data Lake Analytics account.**  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md).
-* **Upload the sample data to the Data Lake Analytics account.** See [To copy sample data files](data-lake-analytics-get-started-portal.md).
-
-    To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow.
+* **Install the sample data.** In the Azure Portal, open you Data Lake Analytics account and click **Sample Scripts** on the left menu, then click **Copy Sample Data**. 
 
 ## Connect to Azure
 Before you can build and test any U-SQL scripts, you must first connect to Azure.
@@ -168,7 +159,7 @@ You can add addition user-defined operators to the application.  For more inform
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**.
 2. Double-click **Samples** to open the folder, and then double-click **Outputs**.
-3. Double-click **UnsuccessfulResponsees.log**.
+3. Double-click **UnsuccessfulResponses.log**.
 4. You can also double-click the output file inside the graph view of the job in order to navigate directly to the output.
 
 ## See also
@@ -177,9 +168,3 @@ To get started with Data Lake Analytics using different tools, see:
 * [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
 * [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Get started with Data Lake Analytics using .NET SDK](data-lake-analytics-get-started-net-sdk.md)
-
-To see more development topics:
-
-* [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-* [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)

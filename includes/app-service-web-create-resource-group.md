@@ -1,13 +1,10 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+---
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command.
-
-[!INCLUDE [resource group intro text](resource-group.md)]
-
-The following example creates a resource group named *myResourceGroup* in the *westeurope* location.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location westeurope
-```
-
-To see the available locations, run the `az appservice list-locations` command. You generally create resources in a region near you.
+[!INCLUDE [resource group no heading](app-service-web-create-resource-group-no-h.md)]

@@ -1,30 +1,24 @@
 ---
-title: 'Get started with U-SQL language | Microsoft Docs'
-description: Learn the basics of the U-SQL language.
+title: Get started with U-SQL language in Azure Data Lake Analytics
+description: Learn the basics of the U-SQL language in Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: edmacauley
-manager: jhubbard
-editor: cgronlun
+author: saveenr
+ms.author: saveenr
 
+ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
-ms.author: edmaca
-
+ms.topic: conceptual
+ms.date: 06/23/2017
 ---
-# Get started with U-SQL
+# Get started with U-SQL in Azure Data Lake Analytics
 U-SQL is a language that combines declarative SQL with imperative C# to let you process data at any scale. Through the scalable, distributed-query capability of U-SQL, you can efficiently analyze data across relational stores such as Azure SQL Database. With U-SQL, you can process unstructured data by applying schema on read and inserting custom logic and UDFs. Additionally, U-SQL includes extensibility that gives you fine-grained control over how to execute at scale. 
 
 ## Learning resources
 
-For detailed information about the **U-SQL language syntax**, see the [U-SQL Language Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
-
-To understand the **U-SQL design philosophy**, see the Visual Studio blog post [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+* The [U-SQL Tutorial](https://aka.ms/usqltutorial) provides a guided walkthrough of most of the U-SQL language. This document is recommended reading for all developers wanting to learn U-SQL.
+* For detailed information about the **U-SQL language syntax**, see the [U-SQL Language Reference](https://docs.microsoft.com/u-sql/).
+* To understand the **U-SQL design philosophy**, see the Visual Studio blog post [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 ## Prerequisites
 
@@ -32,7 +26,7 @@ Before you go through the U-SQL samples in this document, read and complete [Tut
 
 ## Your first U-SQL script
 
-The following U-SQL script is very simple and lets us explore many aspects the U-SQL language.
+The following U-SQL script is simple and lets us explore many aspects the U-SQL language.
 
 ```
 @searchlog =
@@ -68,7 +62,7 @@ This following absolute file path refers to a file in a Data Lake Store named `m
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-This following relative file path starts with `"/"` and refers to a file in the default Data Lake Store account that is associated with the Data Lake Analytics account:
+This following file path starts with `"/"`. It refers to a file in the default Data Lake Store account:
 
     /output/SearchLog-first-u-sql.csv
 
@@ -118,7 +112,7 @@ Use **SELECT** to transform rowsets:
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-The WHERE clause uses a [C# Boolean expression](https://msdn.microsoft.com/library/6a71f45d.aspx). You can use the C# expression language to do your own expressions and functions. You can even perform more complex filtering by combining them with logical conjunctions (ANDs) and disjunctions (ORs).
+The WHERE clause uses a [C# Boolean expression](/dotnet/csharp/language-reference/operators/index). You can use the C# expression language to do your own expressions and functions. You can even perform more complex filtering by combining them with logical conjunctions (ANDs) and disjunctions (ORs).
 
 The following script uses the DateTime.Parse() method and a conjunction.
 
@@ -223,12 +217,8 @@ The U-SQL HAVING clause can be used to restrict the output to groups that satisf
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-## See also
-* [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
+For advanced aggregation scenarios, see the U-SQL reference documentation for [aggregate, analytic, and reference functions](/u-sql/built-in-functions)
 
-## Let us know what you think
-* [Submit a feature request](http://aka.ms/adlafeedback)
-* [Get help in the forums](http://aka.ms/adlaforums)
-* [Provide feedback on U-SQL](http://aka.ms/usqldiscuss)
+## Next steps
+* [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+* [Develop U-SQL scripts by using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

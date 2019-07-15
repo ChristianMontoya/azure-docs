@@ -1,19 +1,19 @@
 ---
 title: Azure Operational Security | Microsoft Docs
-description: Learn about Microsoft Operations Management Suite (OMS), its services, and how it works.
+description: Learn about Microsoft Azure Monitor logs, its services, and how it works.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: article 
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
 
 ---
@@ -27,19 +27,19 @@ We know that security is job one in the cloud and how important it is that you f
 To help customers better understand the array of security controls implemented within Microsoft Azure from both the customer's and Microsoft operational perspectives, this white paper, “Azure Operational Security", is written that provides a comprehensive look at the operational security available with Windows Azure.
 
 ### Azure Platform
-Azure is a public cloud service platform that supports a broad selection of operating systems, programming languages, frameworks, tools, databases,and devices. It can run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java,and Node.js; build back-ends for iOS, Android,and Windows devices. Azure Cloud service supports the same technologies millions of developers and IT professionals already rely on and trust.
+Azure is a public cloud service platform that supports a broad selection of operating systems, programming languages, frameworks, tools, databases,and devices. It can run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java,and Node.js; build back-ends for iOS, Android, and Windows devices. Azure Cloud service supports the same technologies millions of developers and IT professionals already rely on and trust.
 
 When you build on, or migrate IT assets to, a public cloud service provider you are relying on that organization’s abilities to protect your applications and data with the services and the controls they provide to manage the security of your cloud-based assets.
 
 Azure’s infrastructure is designed from the facility to applications for hosting millions of customers simultaneously, and it provides a trustworthy foundation upon which businesses can meet their security requirements. In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements of your organization’s deployments. This document will helps you understand how Azure security capabilities can help you fulfill these requirements.
 
 ### Abstract
-Azure Operational Security refers to the services, controls,and features available to users for protecting their data, applications,and other assets in Microsoft Azure. Azure Operational Security is built on a framework that incorporates the knowledge gained through various capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Center program, and deep awareness of the cybersecurity threat landscape.
+Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications,and other assets in Microsoft Azure. Azure Operational Security is built on a framework that incorporates the knowledge gained through various capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Center program, and deep awareness of the cybersecurity threat landscape.
 
 This white paper outlines Microsoft’s approach to Azure Operational Security within the Microsoft Azure cloud platform and covers following services:
-1.	[Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
+1.	[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
-2.	[Azure Security Canter](https://docs.microsoft.com/azure/security-center/security-center-intro)
+2.	[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 3.	[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
 
@@ -50,37 +50,36 @@ This white paper outlines Microsoft’s approach to Azure Operational Security w
 6.	[Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## Microsoft Operations Management Suite
+## Microsoft Azure Monitor logs
 
+Microsoft Azure Monitor logs is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, Azure Monitor logs gives you the maximum flexibility and control for cloud-based management of your infrastructure.
 
-Microsoft Operations Management Suite (OMS) is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, OMS gives you the maximum flexibility and control for cloud-based management of your infrastructure.
+![Azure Monitor logs](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-![Microsoft Operations Management Suite](./media/azure-operational-security/azure-operational-security-fig1.png)
+With Azure Monitor logs, you can manage any instance in any cloud, including on-premises, Azure, AWS, Windows Server, Linux, VMware, and OpenStack, at a lower cost than competitive solutions. Built for the cloud-first world, Azure Monitor logs offers a new approach to managing your enterprise that is the fastest, most cost-effective way to meet new business challenges and accommodate new workloads, applications and cloud environments.
 
-With OMS, you can manage any instance in any cloud, including on-premises, Azure, AWS, Windows Server, Linux, VMware, and OpenStack, at a lower cost than competitive solutions. Built for the cloud-first world, OMS offers a new approach to managing your enterprise that is the fastest, most cost-effective way to meet new business challenges and accommodate new workloads, applications and cloud environments.
+### Azure Monitor services
 
-### OMS services
-
-The core functionality of OMS is provided by a set of services that run in Azure. Each service provides a specific management function, and you can combine services to achieve different management scenarios.
+The core functionality of Azure Monitor logs is provided by a set of services that run in Azure. Each service provides a specific management function, and you can combine services to achieve different management scenarios.
 
 | Service  | Description|
 | :------------- | :-------------|
-| Log Analytics | Monitor and analyze the availability and performance of different resources including physical and virtual machines. |
+| Azure Monitor logs | Monitor and analyze the availability and performance of different resources including physical and virtual machines. |
 |Automation | Automate manual processes and enforce configurations for physical and virtual machines. |
 | Backup | Back up and restore critical data. |
 | Site Recovery | Provide high availability for critical applications. |
 
-### Log Analytics
+### Azure Monitor logs
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services for OMS by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
-
-
-This method allows you to consolidate data from various sources, so you can combine data from your Azure services with your existing on-premise environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
+[Azure Monitor logs](https://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig2.png)
+This method allows you to consolidate data from various sources, so you can combine data from your Azure services with your existing on-premises environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
 
-The Log Analytics service manages your cloud-based data securely by using the following methods:
+
+![Azure Monitor logs](./media/azure-operational-security/azure-operational-security-fig2.png)
+
+The Azure Monitor service manages your cloud-based data securely by using the following methods:
 -	data segregation
 -	data retention
 -	physical security
@@ -88,25 +87,24 @@ The Log Analytics service manages your cloud-based data securely by using the fo
 -	compliance
 -	security standards certifications
 
-
 ### Azure Backup
 
-[Azure Backup](http://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the OMS suite of products and services.
+[Azure Backup](https://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the Azure Monitor suite of products and services.
  It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can back up data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) to replicate protected data to Azure for redundancy and long-term storage.
 
 
 Protected data in Azure Backup is stored in a backup vault located in a particular geographic region. The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further resiliency.
 
 ### Management Solutions
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
+[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
 
 
-[Management Solutions](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) are prepackaged sets of logics that implement a particular management scenario using one or more OMS services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in OMS. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quick Start Templates.
+[Management Solutions](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quick Start Templates.
 
 
 ![Management Solutions](./media/azure-operational-security/azure-operational-security-fig4.png)
 
-A good example of a solution that uses multiple services to provide additional functionality is the [Update Management solution](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). This solution uses the [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Log Analytics repository where you can analyze it with an included dashboard.
+A good example of a solution that uses multiple services to provide additional functionality is the [Update Management solution](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). This solution uses the [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Azure Monitor logs repository where you can analyze it with an included dashboard.
 
 When you create a deployment, runbooks in [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) are used to install required updates. You manage this entire process in the portal and don’t need to worry about the underlying details.
 
@@ -148,9 +146,9 @@ To help customers prevent, detect, and respond to threats, Azure Security Center
 
 -	**Data segregation**: Data is kept logically separate on each component throughout the service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service.
 
--	**Data access**: To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by Azure services, including crash dump files, process creation events, VM disk snapshots and artifacts, which may unintentionally include Customer Data or personal data from your virtual machines. We adhere to the [Microsoft Online Services Terms and Privacy Statement](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), which state that Microsoft is not uses Customer Data or derive information from it for any advertising or similar commercial purposes.
+-	**Data access**: To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by Azure services, including crash dump files, process creation events, VM disk snapshots and artifacts, which may unintentionally include Customer Data or personal data from your virtual machines. We adhere to the [Microsoft Online Services Terms and Privacy Statement](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), which state that Microsoft is not uses Customer Data or derive information from it for any advertising or similar commercial purposes.
 
--	**Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
+-	**Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
 ### Data location
 
@@ -163,7 +161,7 @@ Azure Security Center collects ephemeral copies of your crash dump files and ana
 
 ## Azure Monitor
 
-The [OMS Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. OMS Security and Audit have security domains that can be used for monitoring resources. The security domain provides quick access to options, for security monitoring the following domains are covered in more details:
+The [Azure Monitor logs Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. Azure Monitor logs Security and Audit have security domains that can be used for monitoring resources. The security domain provides quick access to options, for security monitoring the following domains are covered in more details:
 
 -	Malware assessment
 -	Update assessment
@@ -217,7 +215,7 @@ It is the capability within Azure that enables the collection of diagnostic data
 
 Auditing your network security is vital for detecting network vulnerabilities and ensuring compliance with your IT security and regulatory governance model. With Security Group view, you can retrieve the configured Network Security Group and security rules,and  the effective security rules. With the list of rules applied, you can determine the ports that are open and assess network vulnerability.
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) is a regional service that enables you to monitor and diagnose conditions at a network level in, to, and from Azure. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure. This service includes packet capture, next hop, IP flow verify, security group view, NSG flow logs. Scenario level monitoring provides an end to end view of network resources in contrast to individual network resource monitoring.
+[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) is a regional service that enables you to monitor and diagnose conditions at a network level in, to, and from Azure. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure. This service includes packet capture, next hop, IP flow verify, security group view, NSG flow logs. Scenario level monitoring provides an end to end view of network resources in contrast to individual network resource monitoring.
 
 ![Azure Network Watcher](./media/azure-operational-security/azure-operational-security-fig8.png)
 
@@ -270,11 +268,12 @@ The following types of authenticated and anonymous requests are logged.
 | Requests using a Shared Access Signature (SAS), including failed and successful requests |Time out errors for both client and server |
 | 	Requests to analytics data | 	Failed GET requests with error code 304 (Not Modified) |
 | Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) topics. | All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
+
 ## Azure Active Directory
 
 Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role-based access control, application usage monitoring, rich auditing,and security monitoring and alerting.
 
--	Improve application security with Azure AD multifactor authentication and conditional access.
+-	Improve application security with Azure AD multifactor authentication and Conditional Access.
 
 -	Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
 
@@ -292,7 +291,7 @@ The reports provide the audit record for the event name, the actor who performed
 |Sign-ins from possibly infected devices |Individual user Activity |   |
 |Users with anomalous sign-in activity |Groups activity report |   |
 | |Password Reset Registration Activity Report |   |
-| |Password reset activity |   | |
+| |Password reset activity |   |
 
 
 
@@ -311,7 +310,7 @@ This article summaries protecting your privacy and securing your data, while del
 
 This article explains
 
--	How data is collected, processed, and secured in the Operations Management Suite (OMS).
+-	How data is collected, processed, and secured in the Azure Monitor suite.
 
 -	Quickly analyze events across multiple data sources. Identify security risks and understand the scope and impact of threats and attacks to mitigate the damage of a security breach.
 
@@ -334,7 +333,7 @@ This article explains
 
 Microsoft designs its services and software with security in mind to help ensure that its cloud infrastructure is resilient and defended from attacks.
 
-- [Operations Management Suite | Security & Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Azure Monitor logs | Security & Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 Use Microsoft security data and analysis to perform more intelligent and effective threat detection.
 
